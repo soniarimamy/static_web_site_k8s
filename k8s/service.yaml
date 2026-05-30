@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: static_web_site_k8s-service
+spec:
+  type: NodePort  # Pour accéder depuis l'extérieur
+  selector:
+    app: static_web_site_k8s
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30080  # Port exposé sur node1:30080
